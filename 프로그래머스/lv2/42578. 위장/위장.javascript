@@ -1,12 +1,7 @@
+
 function solution(clothes) {
-    var answer = 1;
-    let cloth=""
-    const map = new Map()
-    for(let i = 0; i< clothes.length; i++){
-        map.set(clothes[i][1],(map.get(clothes[i][1])||1)+1);
-    }
-    for(x of map){
-       answer = answer* x[1]
-    }
-    return answer-1;
+    return Object.values(clothes.reduce((obj, t)=> {
+        obj[t[1]] = obj[t[1]] ? obj[t[1]] + 1 : 1;
+        return obj;
+    } , {})).reduce((a,b)=> a*(b+1), 1)-1;    
 }
