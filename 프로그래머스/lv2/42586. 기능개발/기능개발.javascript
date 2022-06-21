@@ -1,27 +1,25 @@
 function solution(progresses, speeds) {
     var answer = [];
-    let i=0;
-    let stack=[]
-    while(i<progresses.length){
-        gotime(progresses, speeds)
-        let deploycount = deployCheck(progresses,i)
-        if(deploycount) answer.push(deploycount)
-        i+=deploycount;
-    }
-    return answer;
-}
 
-function deployCheck(progresses,count){
-    let stack=[]
- 
-    for(let i=count; i<progresses.length;i++){
-        if(progresses[i]>=100) stack.push(i) 
-        else break;
+    while(speeds.length > 0) {
+        // 개발
+        for(let i in speeds) {
+            if(progresses[i] < 100) {
+                progresses[i] += speeds[i];
+            }
+        }
+
+        // 배포
+        let deploy_count = 0;
+        while(progresses[0] >= 100) {
+            progresses.shift();
+            speeds.shift();
+            deploy_count++;
+        }
+        if(deploy_count > 0) {
+            answer.push(deploy_count);
+        }
     }
-    return stack.length;
-    
-}
-function gotime(progresses,speeds){
-    for(let i=0; i<progresses.length; i++)
-        progresses[i] += speeds[i]
+
+    return answer;
 }
