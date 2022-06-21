@@ -21,11 +21,3 @@ function solution(priorities, location) {
 function changeArray(list){
     list.push(list.shift())
 }
-
-function print(answer,list,location){
-    let target = list[location]
-    answer ++
-    if(list.shift() == target) return answer
-    list.shift()
-    return answer
-}
