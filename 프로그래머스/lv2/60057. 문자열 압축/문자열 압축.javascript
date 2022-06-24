@@ -11,12 +11,17 @@ function solution(s) {
       } let count =1 
       let x=0
         while(x<stack.length){
+            
             if(stack[x]==stack[x+1]) count ++
             else if(count >1){
                 answerStack.push(count)
                 answerStack.push(stack[x])
+
                 count =1
-            }else if(count ==1) answerStack.push(stack[x])
+            }else if(count ==1) {
+                answerStack.push(stack[x])
+
+            }
                x++
         }
                // console.log(answerStack.join(""))
