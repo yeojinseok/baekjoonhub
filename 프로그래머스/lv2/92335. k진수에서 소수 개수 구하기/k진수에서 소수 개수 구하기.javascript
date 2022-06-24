@@ -30,7 +30,7 @@ function solution(n, k) {
 function isPrime(number,answer){
     console.log(number)
     if(number ==1 ) return false
-     for(let i = 2; i <= Math.floor(Math.sqrt(number)); i++){
+     for(let i = 2; i*i <= number; i++){
         if(number % i ==0 ) return false;
     }
     answer.push(number)
