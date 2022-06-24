@@ -1,6 +1,6 @@
 # [level 2] 방문 길이 - 49994 
 
-[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/49994#) 
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/49994) 
 
 ### 성능 요약
 

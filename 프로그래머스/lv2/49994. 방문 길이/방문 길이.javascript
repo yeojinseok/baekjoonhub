@@ -38,16 +38,14 @@ function solution(dirs) {
             break;
     }
     }
-    let log = new Set(movelog.map(data=>data.split(" ").join("")))
+    let log = new Set(movelog.map(data=>data.split(" ").sort((a,b)=>a-b).join("")))
     answer= [...log]
-    console.log(answer)
-    return answer.length/2;
+    return answer.length;
 }
 
 
 function setMoveLog(key,currentPlace,movelog,nextPlace){
     movelog.push(`${currentPlace.join("")} ${nextPlace.join("")}`)
-    movelog.push(`${nextPlace.join("")} ${currentPlace.join("")}`)
     while(currentPlace.pop()|| currentPlace.pop()==0);
     currentPlace.push(...nextPlace)
     return nextPlace;
